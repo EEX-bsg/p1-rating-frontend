@@ -32,18 +32,16 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd frontend
           yarn install --frozen-lockfile
 
       - name: Generate static site
         run: |
-          cd frontend
           yarn generate
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./frontend/.output/public
+          path: .output/public
 
   deploy:
     environment:
